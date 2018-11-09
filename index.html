@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <p style="text-align:center;">Mapping website URLs to native iOS and Android app</p>
+
+    <style type="text/css">
+        .icon-link {
+            margin: 0 auto;
+            width: 150px;
+            padding: 20px 0;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- onload="openApp()" -->
+    <div class="icon-link">
+        <img style="cursor: pointer; width: 150px;" onclick="openApp()" src="img/logo.png" />
+    </div>
+
+    <script>
+        function openApp() {
+            console.log("Platform: " + navigator.platform);
+            // appstore id = "id333903271"; / playstore id = "com.twitter.android"
+
+            /* if we're on iOS, open in App Store */
+            if ((navigator.platform.indexOf("iPhone") != -1) ||
+                (navigator.platform.indexOf("iPod") != -1) ||
+                (navigator.platform.indexOf("iPad") != -1)) {
+                // window.open("itms-apps://itunes.apple.com/app/id333903271"); //to open in new window
+                window.location.href = "itms-apps://itunes.apple.com/app/id333903271"; //to reload window with new link 
+            }
+            /* if we're on Android, open in Play Store */
+            else if ((navigator.platform.indexOf("Android") != -1) ||
+                (navigator.platform.indexOf("Linux") != -1) ||
+                (navigator.platform.indexOf("null") != -1)) {
+
+                window.location.href = "https://play.google.com/store/apps/details?id=com.twitter.android"
+
+            }
+            /* else use Google */
+            else {
+
+                window.location.href = "https://woorkout.app/"
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
